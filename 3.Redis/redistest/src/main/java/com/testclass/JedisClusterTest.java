@@ -10,7 +10,7 @@ public class JedisClusterTest {
         config.setMaxTotal(20);
         config.setMaxIdle(10);
         config.setMinIdle(5);
-        Set<HostAndPort> jedisClusterNode = new HashSet();
+        Set<HostAndPort> jedisClusterNode = new HashSet<>();
         jedisClusterNode.add(new HostAndPort("127.0.0.1", 8001));
         jedisClusterNode.add(new HostAndPort("127.0.0.1", 8002));
         jedisClusterNode.add(new HostAndPort("127.0.0.1", 8003));
