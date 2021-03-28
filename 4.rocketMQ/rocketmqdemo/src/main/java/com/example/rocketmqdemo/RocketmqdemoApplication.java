@@ -1,16 +1,13 @@
-package com.rocketmq;
+package com.example.rocketmqdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * @description:
- **/
-
 @SpringBootApplication
-public class RocketMQSBApplication {
+public class RocketmqdemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RocketMQSBApplication.class, args);
+        SpringApplication.run(RocketmqdemoApplication.class, args);
     }
+
 }

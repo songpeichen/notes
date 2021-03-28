@@ -32,7 +32,8 @@ public class ProductWithPayload<T> {
         this.payload = payload;
     }
 
-    @Override public String toString() {
+    @Override
+    public String toString() {
         return "ProductWithPayload{" +
                 "productName='" + productName + '\'' +
                 ", payload=" + payload +
