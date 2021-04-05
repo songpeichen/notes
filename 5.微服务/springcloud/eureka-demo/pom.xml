@@ -9,6 +9,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>eureka-server</module>
+        <module>eureka-server-a</module>
+        <module>eureka-server-b</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
