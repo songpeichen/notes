@@ -3,7 +3,6 @@ package com.service.impl;
 import com.pojo.Product;
 import com.service.ProductService;
 import org.springframework.stereotype.Service;
-import rx.Producer;
 
 import java.util.Arrays;
 import java.util.List;
