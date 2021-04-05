@@ -11,6 +11,7 @@
         <module>eureka-server</module>
         <module>eureka-server-a</module>
         <module>eureka-server-b</module>
+        <module>server-provider</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
