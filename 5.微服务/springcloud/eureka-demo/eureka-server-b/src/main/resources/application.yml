@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: eureka-server
+  security:
+    user:
+      name: root
+      password: 123456
 eureka:
   instance:
     hostname: localhost             #主机名
@@ -10,4 +14,4 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:
     service-url:                    #注册中心对外暴露的服务地址
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://root:123456@${eureka.instance.hostname}:8761/eureka/

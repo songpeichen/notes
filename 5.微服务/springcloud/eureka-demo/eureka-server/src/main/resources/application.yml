@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: eureka-server
+  security:
+    user:
+      name: root
+      password: 123456
 eureka:
   instance:
     hostname: localhost             #主机名
@@ -10,4 +14,4 @@ eureka:
     register-with-eureka: false     #是否将自己注册到注册中心
     fetch-registry: false           #是否在注册中心获取服务信息
     service-url:                    #注册中心对外暴露的服务地址
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://root:123456@${eureka.instance.hostname}:${server.port}/eureka/

@@ -6,6 +6,6 @@ spring:
 eureka:
   client:
     service-url:                    #注册中心对外暴露的服务地址
-      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+      defaultZone: http://root:123456@localhost:8761/eureka/,http://root:123456@localhost:8762/eureka/
     register-with-eureka: false           #是否注册到eureka
     registry-fetch-interval-seconds: 10   #隔多久去eureka里拉取
