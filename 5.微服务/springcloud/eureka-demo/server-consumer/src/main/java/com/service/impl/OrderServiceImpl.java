@@ -31,16 +31,13 @@ public class OrderServiceImpl implements OrderService {
 //        List<Product> productList = selectProductListByDiscoveryClient();
 //        List<Product> productList = selectProductListByLoadBalancerClient();
         List<Product> productList = selectProductListByLoadBalancerAnnotation();
-        Order order = new Order(id, "orderNo111", "订单地址", 204.3, productList);
-        return order;
+        return new Order(id, "orderNo111", "订单地址", 204.3, productList);
     }
 
     /**
      * 根据discoverClient调用服务
-     * @return
      */
     private List<Product> selectProductListByDiscoveryClient() {
-        List<String> services = discoveryClient.getServices();
         List<ServiceInstance> instances = discoveryClient.getInstances("server-provider");
         ServiceInstance s1 = instances.get(0);
         ResponseEntity<List<Product>> response = restTemplate.exchange("http://" + s1.getHost() + ":" + s1.getPort() + "/product/getProductList", HttpMethod.GET, null, new ParameterizedTypeReference<List<Product>>() {});
@@ -49,7 +46,6 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 根据loadBalancerClient调用服务
-     * @return
      */
     private List<Product> selectProductListByLoadBalancerClient(){
         ServiceInstance s1 = loadBalancerClient.choose("server-provider");
@@ -61,7 +57,6 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 根据loadBalancerClient注解调用服务，在restTemplate的Bean上添加@LoadBalance注解
-     * @return
      */
     private List<Product> selectProductListByLoadBalancerAnnotation(){
         ResponseEntity<List<Product>> response = restTemplate.exchange("http://server-provider/product/getProductList", HttpMethod.GET, null, new ParameterizedTypeReference<List<Product>>() {});
