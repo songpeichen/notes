@@ -1,5 +1,6 @@
 package com.pojo;
 
+import lombok.*;
 
 import java.io.Serializable;
 

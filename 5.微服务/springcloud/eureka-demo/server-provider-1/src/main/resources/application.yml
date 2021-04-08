@@ -1,0 +1,21 @@
+server:
+  port: 7071
+spring:
+  application:
+    name: server-provider
+eureka:
+  instance:
+    hostname: localhost             #主机名
+    prefer-ip-address: true         #是否使用IP地址注册
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:                    #注册中心对外暴露的服务地址
+      defaultZone: http://root:123456@${eureka.instance.hostname}:8761/eureka/,http://root:123456@${eureka.instance.hostname}:8762/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: shutdown           #开启的端点， 也可以写星号  "*"
+  endpoint:
+    shutdown:
+      enabled: true

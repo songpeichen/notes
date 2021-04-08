@@ -12,6 +12,8 @@
         <module>eureka-server-a</module>
         <module>eureka-server-b</module>
         <module>server-provider</module>
+        <module>server-provider-1</module>
+        <module>server-provider-2</module>
         <module>server-consumer</module>
     </modules>
     <parent>

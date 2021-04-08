@@ -29,8 +29,8 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order selectOrderById(Long id) {
 //        List<Product> productList = selectProductListByDiscoveryClient();
-//        List<Product> productList = selectProductListByLoadBalancerClient();
-        List<Product> productList = selectProductListByLoadBalancerAnnotation();
+        List<Product> productList = selectProductListByLoadBalancerClient();
+//        List<Product> productList = selectProductListByLoadBalancerAnnotation();
         return new Order(id, "orderNo111", "订单地址", 204.3, productList);
     }
 
@@ -49,6 +49,7 @@ public class OrderServiceImpl implements OrderService {
      */
     private List<Product> selectProductListByLoadBalancerClient(){
         ServiceInstance s1 = loadBalancerClient.choose("server-provider");
+        System.err.println(s1.getPort());
         ResponseEntity<List<Product>> response = restTemplate.exchange("http://" + s1.getHost() + ":" + s1.getPort() + "/product/getProductList", HttpMethod.GET, null, new ParameterizedTypeReference<List<Product>>() {});
         return response.getBody();
 

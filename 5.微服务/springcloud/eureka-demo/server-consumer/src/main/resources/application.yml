@@ -9,3 +9,8 @@ eureka:
       defaultZone: http://root:123456@localhost:8761/eureka/,http://root:123456@localhost:8762/eureka/
     register-with-eureka: false           #是否注册到eureka
     registry-fetch-interval-seconds: 10   #隔多久去eureka里拉取
+
+#server-provider为服务名  局部负载均衡策略的配置示例
+server-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
