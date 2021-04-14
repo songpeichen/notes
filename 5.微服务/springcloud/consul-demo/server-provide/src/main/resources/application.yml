@@ -1,0 +1,17 @@
+server:
+    port: 7070                      #端口
+spring:
+    application:
+        name: server-provide        #应用名
+    cloud:
+      consul:                       #consul注册中心
+          host: localhost
+          port: 8500
+          #服务提供者信息
+          discovery:
+              register: true                                        #是否需要注册
+              instance-id: ${spring.application.name}-01            #注册实例id
+              service-name: ${spring.application.name}              #服务名称
+              port: ${server.port}                                  #服务端口
+              prefer-ip-address: true                               #是否使用ip注册
+              ip-address: ${spring.cloud.client.ip-address}         #服务请求ip
