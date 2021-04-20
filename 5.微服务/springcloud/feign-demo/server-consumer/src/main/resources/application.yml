@@ -1,0 +1,20 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: server-consumer
+#eureka:
+#  client:
+#    service-url:                    #注册中心对外暴露的服务地址
+#      defaultZone: http://root:123456@localhost:8761/eureka/,http://root:123456@localhost:8762/eureka/
+#    register-with-eureka: false           #是否注册到eureka
+#    registry-fetch-interval-seconds: 10   #隔多久去eureka里拉取
+
+#server-provider为服务名  局部负载均衡策略的配置示例
+server-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    listOfServers: http://127.0.0.1:7071,http://127.0.0.1:7072
+ribbon:
+  eureka:
+    enable: false     #关闭eureka实现ribbon直连
